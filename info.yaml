@@ -1,57 +1,54 @@
 # Tiny Tapeout project information
 project:
-  title:        "4-bit ALU"      # Project title
+  title:        "Systolic MAC accelerator"      # Project title
   author:       "Rishi Govindan"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "4-bit combinational ALU (add/sub/and/or/xor/not/shift)"      # One line description of what your project does
+  description:  "Parameterized signed systolic matrix multiplier with byte-stream IO"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     40000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  tiles: "2x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_rishigovindan_alu"
+  top_module:  "tt_um_rishigovindan_systolic"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "project.v"
-    - "alu.v"
+    - "mac_pe.v"
+    - "systolic_array.v"
+    - "mac_accelerator.v"
+    - "config.vh"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
-  # Inputs
-  ui[0]: "A0"
-  ui[1]: "A1"
-  ui[2]: "A2"
-  ui[3]: "A3"
-  ui[4]: "B0"
-  ui[5]: "B1"
-  ui[6]: "B2"
-  ui[7]: "B3"
-
-  # Outputs
-  uo[0]: "Y0"
-  uo[1]: "Y1"
-  uo[2]: "Y2"
-  uo[3]: "Y3"
-  uo[4]: "CARRY"
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
-
-  # Bidirectional pins
-  uio[0]: "OP0"
-  uio[1]: "OP1"
-  uio[2]: "OP2"
+  ui[0]: "DATA_IN0"
+  ui[1]: "DATA_IN1"
+  ui[2]: "DATA_IN2"
+  ui[3]: "DATA_IN3"
+  ui[4]: "DATA_IN4"
+  ui[5]: "DATA_IN5"
+  ui[6]: "DATA_IN6"
+  ui[7]: "DATA_IN7"
+  uo[0]: "DATA_OUT0"
+  uo[1]: "DATA_OUT1"
+  uo[2]: "DATA_OUT2"
+  uo[3]: "DATA_OUT3"
+  uo[4]: "DATA_OUT4"
+  uo[5]: "DATA_OUT5"
+  uo[6]: "DATA_OUT6"
+  uo[7]: "DATA_OUT7"
+  uio[0]: "CMD0"
+  uio[1]: "CMD1"
+  uio[2]: "CMD2"
   uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[4]: "BUSY"
+  uio[5]: "DONE"
+  uio[6]: "LOAD_READY"
+  uio[7]: "ERROR"
 
-# Do not change!
 yaml_version: 6

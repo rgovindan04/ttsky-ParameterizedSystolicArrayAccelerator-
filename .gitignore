@@ -11,3 +11,16 @@ test/sim_build
 test/__pycache__/
 test/results.xml
 test/gate_level_netlist.v
+
+.venv/
+.tt-tools/
+tt/
+__pycache__/
+reports/synthesis/
+reports/physical-runs/
+build/
+obj_dir/
+
+/tt
+/reports/*-physical.log
+/reports/*.log

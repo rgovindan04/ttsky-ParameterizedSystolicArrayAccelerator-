@@ -3,6 +3,12 @@ name: gds
 on:
   push:
   workflow_dispatch:
+    inputs:
+      configuration:
+        description: Architecture profile to harden (each run has separate artifacts)
+        type: choice
+        default: default
+        options: [default, tiny, small, wide_acc, rectangular]
 
 jobs:
   gds:
@@ -12,6 +18,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Select architecture profile
+        env:
+          PROFILE: ${{ inputs.configuration || 'default' }}
+        run: python3 scripts/select_config.py "$PROFILE"
 
       - name: Build GDS
         uses: TinyTapeout/tt-gds-action@ttsky26a
@@ -33,6 +44,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Select matching test configuration
+        env:
+          PROFILE: ${{ inputs.configuration || 'default' }}
+        run: python3 scripts/select_config.py "$PROFILE"
 
       - name: GL test
         uses: TinyTapeout/tt-gds-action/gl_test@ttsky26a

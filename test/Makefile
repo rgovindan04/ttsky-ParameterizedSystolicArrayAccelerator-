@@ -5,14 +5,16 @@
 SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
-SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v alu.v
+SRC_DIR = $(CURDIR)/../src
+PROJECT_SOURCES = project.v mac_pe.v systolic_array.v mac_accelerator.v
 
 ifneq ($(GATES),yes)
 
 # RTL simulation:
-SIM_BUILD				= sim_build/rtl
+SIM_BUILD ?= sim_build/rtl
+COMPILE_ARGS += $(EXTRA_DEFINES)
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+CUSTOM_COMPILE_DEPS += $(SRC_DIR)/config.vh
 
 else
 
@@ -27,7 +29,8 @@ VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitiv
 VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
 
 # this gets copied in by the GDS action workflow
-VERILOG_SOURCES += $(PWD)/gate_level_netlist.v
+GATE_NETLIST ?= $(CURDIR)/gate_level_netlist.v
+VERILOG_SOURCES += $(GATE_NETLIST)
 
 endif
 
@@ -35,7 +38,7 @@ endif
 COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 # Include the testbench sources:
-VERILOG_SOURCES += $(PWD)/tb.v
+VERILOG_SOURCES += $(CURDIR)/tb.v
 TOPLEVEL = tb
 
 # List test modules to run, separated by commas and without the .py suffix:

@@ -1,0 +1,205 @@
+{
+  "python": "3.11.6",
+  "numpy": "1.26.2",
+  "cocotb": "2.0.1",
+  "runs": [
+    {
+      "configuration": "tiny",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "tiny",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "tiny",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "small",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "small",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "small",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "default",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "default",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "default",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "wide_acc",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "wide_acc",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "wide_acc",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "rectangular",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "rectangular",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "rectangular",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "tall",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "tall",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "tall",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "byte_padding",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "byte_padding",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "byte_padding",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "overflow",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "overflow",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "overflow",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "single",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "single",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "single",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "wide_data",
+      "stage": "pe",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "wide_data",
+      "stage": "array",
+      "tests": 1,
+      "passed": true
+    },
+    {
+      "configuration": "wide_data",
+      "stage": "host",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "gl-small",
+      "stage": "gate_level",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "gl-wide",
+      "stage": "gate_level",
+      "tests": 2,
+      "passed": true
+    },
+    {
+      "configuration": "gl-default25",
+      "stage": "gate_level",
+      "tests": 2,
+      "passed": true
+    }
+  ]
+}
